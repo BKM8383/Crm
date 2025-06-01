@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "78e06934-bebd-4add-8d86-7a722ab43574",
+		"name": "Xeno CRM API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45418729"
+	},
+	"item": [
+		{
+			"name": "customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Alice\",\r\n  \"email\": \"alice@example.com\",\r\n  \"phone\": \"9998887777\",\r\n  \"totalSpend\": 15000.0,\r\n  \"visits\": 1,\r\n  \"lastSeen\": \"2025-04-15\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerId\": \"cust_001\",\r\n  \"amount\": 7000,\r\n  \"items\": [\"item_003\", \"item_004\"],\r\n  \"orderDate\": \"2025-05-28\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

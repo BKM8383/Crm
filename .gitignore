@@ -1,0 +1,31 @@
+# Global ignores
+node_modules/
+dist/
+build/
+.env
+.DS_Store
+*.log
+
+# Frontend (React) ignores
+crm_frontend/node_modules/
+crm_frontend/build/
+crm_frontend/dist/
+crm_frontend/.env
+crm_frontend/.next/
+crm_frontend/.cache/
+crm_frontend/.DS_Store
+
+# Backend (Spring Boot) ignores
+crm_backend/target/
+crm_backend/.idea/
+crm_backend/.classpath
+crm_backend/.project
+crm_backend/.settings/
+crm_backend/.env
+crm_backend/.DS_Store
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+*.swp
+*.swo
