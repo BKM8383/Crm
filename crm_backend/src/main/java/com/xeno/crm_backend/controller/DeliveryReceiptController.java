@@ -20,18 +20,16 @@ public class DeliveryReceiptController {
     private CommunicationLogRepository logRepository;
 
     @PostMapping("/delivery-receipt")
-    public void handleReceipt(@RequestBody Map<String, Object> payload) {
-        String campaignId = (String) payload.get("campaignId");
-        String customerId = (String) payload.get("customerId");
-        String status = (String) payload.get("status");
+public void handleReceipt(@RequestBody Map<String, Object> payload) {
+    String campaignId = (String) payload.get("campaignId");
+    String customerId = (String) payload.get("customerId");
+    String status = (String) payload.get("status");
 
-        CommunicationLog log = new CommunicationLog(
-            campaignId,
-            customerId,
-            status,
-            LocalDateTime.now()
-        );
+    System.out.println("Received delivery receipt - Campaign: " + campaignId +
+                       ", Customer: " + customerId + ", Status: " + status);
 
-        logRepository.save(log);
-    }
+    CommunicationLog log = new CommunicationLog(campaignId, customerId, status, LocalDateTime.now());
+    logRepository.save(log);
+}
+
 }

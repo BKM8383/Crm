@@ -70,8 +70,6 @@ public void deliverCampaign(@RequestBody Map<String, Object> payload) {
     String campaignId = (String) payload.get("campaignId");
     List<Map<String, Object>> rules = new com.fasterxml.jackson.databind.ObjectMapper()
             .convertValue(payload.get("rules"), new com.fasterxml.jackson.core.type.TypeReference<List<Map<String, Object>>>() {});
-
-    // Filter matching customers
     Query query = new Query();
     Criteria combined = null;
 
@@ -116,7 +114,6 @@ public void deliverCampaign(@RequestBody Map<String, Object> payload) {
 
     List<Customer> recipients = mongoTemplate.find(query, Customer.class);
 
-    // Trigger dummy vendor API for each customer
     for (Customer customer : recipients) {
         Map<String, Object> body = new HashMap<>();
         body.put("campaignId", campaignId);
@@ -124,5 +121,8 @@ public void deliverCampaign(@RequestBody Map<String, Object> payload) {
 
         restTemplate.postForObject("http://localhost:8080/vendor/send", body, Void.class);
     }
+    System.out.println("🚀 Delivering campaign: " + campaignId);
+    System.out.println("📬 Matching customers: " + recipients.size());
+
 }
 }

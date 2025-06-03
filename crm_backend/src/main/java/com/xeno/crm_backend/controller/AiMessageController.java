@@ -57,12 +57,12 @@ public class AiMessageController {
 
     //             return ResponseEntity.ok(variants);
     //         } else {
-    //             System.out.println("❌ OpenAI API Error: " + response);
+    //             System.out.println("OpenAI API Error: " + response);
     //             return ResponseEntity.status(500).body(List.of("Error from OpenAI API"));
     //         }
 
     //     } catch (Exception e) {
-    //         e.printStackTrace(); // ✅ Logs the real error
+    //         e.printStackTrace(); // Logs the real error
     //         return ResponseEntity.status(500).body(List.of("AI API call failed: " + e.getMessage()));
     //     }
     // }
@@ -71,11 +71,11 @@ public class AiMessageController {
     @PostMapping("/suggest-messages")
 public ResponseEntity<List<String>> suggestMessages(@RequestBody Map<String, String> body) {
     List<String> suggestions = List.of(
-        "🤖 AI message suggestion feature is fully built and ready.",
-        "🛠 During development, I used OpenAI's GPT-3.5 API to generate campaign messages based on custom objectives entered by the user.",
-        "💰 However, the $1 free trial quota provided by OpenAI was fully consumed while testing this functionality.",
-        "💡 To re-enable live AI responses, simply uncomment the OpenAI integration code in this controller and add a valid API key.",
-        "📌 Everything else — prompt handling, response parsing, and frontend display — is already working. You can see how the feature flows end-to-end."
+        "AI message suggestion feature is fully built and ready.",
+        "During development, I used OpenAI's GPT-3.5 API to generate campaign messages based on custom objectives entered by the user.",
+        "However, the $1 free trial quota provided by OpenAI was fully consumed while testing this functionality.",
+        "To re-enable live AI responses, simply uncomment the OpenAI integration code in this controller and add a valid API key.",
+        "Everything else — prompt handling, response parsing, and frontend display — is already working. You can see how the feature flows end-to-end."
     );
     return ResponseEntity.ok(suggestions);
 }
